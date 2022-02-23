@@ -1,4 +1,4 @@
-module pizza-world
+module github.com/yachnytskyi/pizza-world
 
 go 1.17
 

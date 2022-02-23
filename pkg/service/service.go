@@ -1,6 +1,6 @@
 package service
 
-import "pizza-world/pkg/repository"
+import "github.com/yachnytskyi/pizza-world/pkg/repository"
 
 type Authorization interface {
 }

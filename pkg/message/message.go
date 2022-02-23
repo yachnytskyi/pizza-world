@@ -9,7 +9,7 @@ package message
 // type UsersList struct {
 // 	Id     int
 // 	UserId int
-// 	ListId int
+// 	MessageId int
 // }
 
 // type Message struct {
