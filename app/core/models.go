@@ -1,12 +1,19 @@
-package recipe
+package core
 
-type RecipeList struct {
+type User struct {
+	Id       int    `json:"-"`
+	Name     string `json:"name"`
+	Username string `json:"username"`
+	Password string `json:"password"`
+}
+
+type Recipe struct {
 	Id          int    `json:"id"`
 	Title       string `json:"title"`
 	Description string `json:"description"`
 }
 
-type UsersList struct {
+type RecipeUsers struct {
 	Id       int
 	UserId   int
 	RecipeId int
@@ -20,7 +27,7 @@ type Ingredient struct {
 	Seafood     string `json:"seafood"`
 }
 
-type IngredientsList struct {
+type RecipeIngredients struct {
 	Id           int
 	RecipeId     int
 	IngredientId int

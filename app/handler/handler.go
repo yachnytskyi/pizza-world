@@ -1,7 +1,7 @@
 package handler
 
 import (
-	"github.com/yachnytskyi/pizza-world/pkg/service"
+	"github.com/yachnytskyi/pizza-world/app/service"
 
 	"github.com/gin-gonic/gin"
 )

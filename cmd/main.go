@@ -3,10 +3,10 @@ package main
 import (
 	"log"
 
+	"github.com/yachnytskyi/pizza-world/app/handler"
+	"github.com/yachnytskyi/pizza-world/app/repository"
+	"github.com/yachnytskyi/pizza-world/app/service"
 	"github.com/yachnytskyi/pizza-world/cmd/server"
-	"github.com/yachnytskyi/pizza-world/pkg/handler"
-	"github.com/yachnytskyi/pizza-world/pkg/repository"
-	"github.com/yachnytskyi/pizza-world/pkg/service"
 )
 
 func main() {
