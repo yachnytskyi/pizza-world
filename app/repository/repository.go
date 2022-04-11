@@ -1,22 +1,28 @@
 package repository
 
-import "github.com/jmoiron/sqlx"
+import (
+	"github.com/jmoiron/sqlx"
+	"github.com/yachnytskyi/pizza-world/app/core"
+)
 
 type Authorization interface {
+	CreateUser(user core.User) (int, error)
 }
 
-type RecipeList interface {
+type Recipe interface {
 }
 
-type IngredientList interface {
+type Ingredient interface {
 }
 
 type Repository struct {
 	Authorization
-	RecipeList
-	IngredientList
+	Recipe
+	Ingredient
 }
 
 func NewRepository(db *sqlx.DB) *Repository {
-	return &Repository{}
+	return &Repository{
+		Authorization: NewAuthPostgres(db),
+	}
 }

@@ -14,6 +14,7 @@ import (
 )
 
 func main() {
+	logrus.SetFormatter(new(logrus.JSONFormatter))
 	if err := initConfig(); err != nil {
 		logrus.Fatalf("error initializing configs: %s", err.Error())
 	}
@@ -39,16 +40,13 @@ func main() {
 	handlers := handler.NewHandler(services)
 
 	srv := new(server.Server)
-	if err := srv.Run(viper.GetString("8000"), handlers.InitRoutes()); err != nil {
+	if err := srv.Run(viper.GetString("port"), handlers.InitRoutes()); err != nil {
 		logrus.Fatalf("Error occured while running http server: %s", err.Error())
 	}
 }
 
 func initConfig() error {
 	viper.AddConfigPath("configs")
-	viper.SetConfigName("configs")
+	viper.SetConfigName("config")
 	return viper.ReadInConfig()
 }
-
-// db, err := sqlx.Open("postgres", fmt.Sprintf("db_host=%s db_port=%s db_name=%s db_user=%s db_password=%s sslmode=%s",
-// cfg.DB_HOST, cfg.DB_PORT, cfg.DB_NAME, cfg.DB_USER, cfg.DB_PASS, cfg.SSL_MODE))
