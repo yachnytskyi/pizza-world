@@ -1,7 +1,8 @@
 package repository
 
 import (
-	"github.com/jmoiron/sqlx"
+	"database/sql"
+
 	"github.com/yachnytskyi/pizza-world/app/core"
 )
 
@@ -21,7 +22,7 @@ type Repository struct {
 	Ingredient
 }
 
-func NewRepository(db *sqlx.DB) *Repository {
+func NewRepository(db *sql.DB) *Repository {
 	return &Repository{
 		Authorization: NewAuthPostgres(db),
 	}

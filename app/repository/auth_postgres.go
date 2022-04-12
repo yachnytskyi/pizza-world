@@ -1,17 +1,17 @@
 package repository
 
 import (
+	"database/sql"
 	"fmt"
 
-	"github.com/jmoiron/sqlx"
 	"github.com/yachnytskyi/pizza-world/app/core"
 )
 
 type AuthPostgres struct {
-	db *sqlx.DB
+	db *sql.DB
 }
 
-func NewAuthPostgres(db *sqlx.DB) *AuthPostgres {
+func NewAuthPostgres(db *sql.DB) *AuthPostgres {
 	return &AuthPostgres{db: db}
 }
 

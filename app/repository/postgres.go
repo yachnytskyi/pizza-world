@@ -1,9 +1,10 @@
 package repository
 
 import (
+	"database/sql"
 	"fmt"
 
-	"github.com/jmoiron/sqlx"
+	_ "github.com/lib/pq"
 )
 
 const (
@@ -23,8 +24,8 @@ type Config struct {
 	SSL_MODE string
 }
 
-func NewPostgresDB(cfg Config) (*sqlx.DB, error) {
-	db, err := sqlx.Open("postgres", fmt.Sprintf("db_host=%s db_port=%s db_name=%s db_user=%s db_pass=%s sslmode=%s",
+func NewPostgresDB(cfg Config) (*sql.DB, error) {
+	db, err := sql.Open("postgres", fmt.Sprintf("db_host=%s db_port=%s db_name=%s db_user=%s db_pass=%s sslmode=%s",
 		cfg.DB_HOST, cfg.DB_PORT, cfg.DB_NAME, cfg.DB_USER, cfg.DB_PASS, cfg.SSL_MODE))
 	if err != nil {
 		return nil, err
